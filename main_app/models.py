@@ -38,8 +38,8 @@ class Message(models.Model):
     chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
 
 
-class User_Profile(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     display_name = models.CharField(max_length=50)
     zip = models.IntegerField()
     chats = models.ManyToManyField(Chat)
