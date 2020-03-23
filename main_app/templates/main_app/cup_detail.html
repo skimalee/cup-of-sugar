@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h1>{{ object.item }} details</h1>
+<p>{{ object.cup_type }}</p>
+<p>Category: {{ object.category }}</p>
+
+<h3>Posted by: {{ object.user_name }}</h3>
+
+<p>{{ object.description }}</p>
+
+<p>{{ object.fulfilled }}</p>
+
+{% endblock %}

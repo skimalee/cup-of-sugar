@@ -2,9 +2,14 @@ from django.shortcuts import render, redirect
 from . models import Cup
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.detail import DetailView
 
 # Create your views here.
 
+
+class CupRead(DetailView):
+    model = Cup
+    fields = ['user_name', 'cup_type', 'item', 'category', 'description', 'fulfilled']
 
 def home(request):
     return render(request, 'home.html')
