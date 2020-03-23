@@ -50,7 +50,7 @@ class Profile(models.Model):
 
 
 class Cup(models.Model):
-    user = models.ForeignKey(User_Profile, null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(Profile, null=True, on_delete=models.CASCADE)
     user_name = models.CharField(max_length=50, null=True)
     fulfilled_by_profile_id = models.IntegerField(default=0)
     cup_type = models.CharField(
