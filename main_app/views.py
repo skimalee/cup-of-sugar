@@ -27,6 +27,8 @@ class CupDelete(DeleteView):
     model = Cup
     success_url = '/cups/'
 
+def home(request):
+    return render(request, 'registration/signup.html')
 
 def index(request):
     return render(request, 'cups/index.html')
