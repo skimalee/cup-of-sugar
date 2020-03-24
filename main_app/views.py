@@ -39,7 +39,7 @@ def home(request):
 
 def index(request):
     cups = Cup.objects.all()
-    return render(request, 'cups/index.html')
+    return render(request, 'cups/index.html', {'cups': cups})
 
 
 def signup(request):

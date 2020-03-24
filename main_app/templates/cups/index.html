@@ -1,4 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Cups Index</h1>
+
+
+{% for cup in cups %}
+    <div class="card">
+        <a href="{% url 'detail' cup.id %}">
+            <div class="cup-photo">
+                <img src="">
+            </div>
+            <div class="card-content">
+                <span class="card-title">{{ cup.item }}</span>
+            <p> {{ cup.description }}</p>            
+            </div>
+        </a>
+    </div>
+{% endfor %}
 {% endblock %}

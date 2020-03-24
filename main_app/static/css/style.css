@@ -171,3 +171,24 @@ footer.page-footer {
   margin: 0;
 }
 
+/* cups feed */
+
+.card {
+  height: 30vh;
+  width: 25vh;
+  background: gray;
+  color: white;
+  margin: 3em;
+  padding: 3em;
+  border-radius: 5px;
+}
+
+.card-content {
+  color: white;
+}
+
+.cup-photo {
+  height: 50%;
+  width: auto;
+  background: black;
+}
