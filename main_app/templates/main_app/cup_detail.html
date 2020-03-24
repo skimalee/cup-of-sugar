@@ -6,20 +6,33 @@
         <p class="no-image">No Image Available</p>
     </div>
     <div class="cup-details">
-        <p>Category: {{ object.category }}</p>
-
-        <h3>Posted by: {{ object.user_name }}</h3>
-
-        <p>{{ object.description }}</p>
-
-        <p>{{ object.fulfilled }}</p>
-
-        <button id='button-add' class="btn" type='submit'>
-            <p>+</p>
-            <img class="chat-icon" src="https://i.imgur.com/J3mdIoh.png">
-            <p>Is this available?</p>
-        </button>
-</div>
+        {% if object.user == user %}
+            <div class='cup-edit-n-delete'>
+                <h5 class="cup-item">{{ object.item }}</h5>
+                <button id='edit-btn'>
+                    <img class='edit-icon' src='https://i.imgur.com/Wi8U0EK.png'>
+                    <a href="{% url 'cups_update' cup.id %}"></a>
+                </button>
+                <button id='delete-btn' type='submit'>
+                    <a href="{% url 'cups_delete' cup.id %}">x</a>
+                </button>
+            </div>
+        {% endif %}
+        <div class="cup-details-content">
+            <p>Posted by: {{ object.user_name }}</p>
+            <p>Category: {{ object.get_category_display }}</p>
+            <p>{{ object.description }}</p>
+            <p>{{ object.fulfilled }}</p>
+            <!-- <form action='' method=''>
+                {% csrf_token %} -->
+            <button id='button-add' class="btn" type='submit'>
+                <p>+</p>
+                <img class="chat-icon" src="https://i.imgur.com/J3mdIoh.png">
+                <p>Is this available?</p>
+            </button>
+            <!-- </form> -->
+        </div>
+    </div>
 </div>
 
 {% endblock %}

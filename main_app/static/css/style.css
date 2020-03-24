@@ -14,7 +14,6 @@ body {
 
 a {
   text-decoration: none;
-  padding: 10px;
   color: white;
 }
   
@@ -50,6 +49,7 @@ a {
 
 .right li {
   font-size: 12px;
+  padding-left: 10px;
 }
 
 main {
@@ -154,6 +154,47 @@ footer.page-footer {
   padding: 1em;
   display: flex;
   flex-direction: column;
+  width: 45%;
+}
+
+#edit-btn {
+  border-radius: 5px;
+  margin-right: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+.edit-icon {
+  height: 11px;
+}
+
+#delete-btn {
+  background: #C2123A;
+  border-color: #C2123A;
+  color: #fff;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: .75em;
+  font-weight: bold;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.cup-edit-n-delete {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cup-edit-n-delete {
+  justify-content: flex-start;
 }
 
 .chat-icon {
