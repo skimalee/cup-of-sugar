@@ -1,0 +1,29 @@
+{% extendends 'base.html' %}
+
+{% block content%}
+    {% if object %}
+        <h1>Edit {{ object.item }}</h1>
+    {% else %}
+        <h1>Add Cup</h1>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+<div>
+    {% for photo in cup.photo_set.all %}
+        <img src="{{photo.url}}">
+    {% empty %}
+    <div>No Photos Uploaded</div>
+    {% endfor %}
+    <form action="{{% url 'add_photo' cup.id %}}" enctype="multipart/form-data" method="POST" class="card-panel">
+    {% csrf_token %}
+    <input type="file" name="photo-file">
+    <br><br>
+    <input type="submit" class="btn" value="Upload Photo">
+    </form>
+</div>
+        <input type="submit" value="Submit" class="btn">
+    </form>
+{% endblock %}
