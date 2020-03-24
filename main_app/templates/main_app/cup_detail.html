@@ -1,15 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div class="cup-details-container">
+    <div class="cup-details-photo">
+        <p class="no-image">No Image Available</p>
+    </div>
+    <div class="cup-details">
+        <p>Category: {{ object.category }}</p>
 
-<h1>{{ object.item }} details</h1>
-<p>{{ object.cup_type }}</p>
-<p>Category: {{ object.category }}</p>
+        <h3>Posted by: {{ object.user_name }}</h3>
 
-<h3>Posted by: {{ object.user_name }}</h3>
+        <p>{{ object.description }}</p>
 
-<p>{{ object.description }}</p>
+        <p>{{ object.fulfilled }}</p>
 
-<p>{{ object.fulfilled }}</p>
+        <button id='button-add' class="btn" type='submit'>
+            <p>+</p>
+            <img class="chat-icon" src="https://i.imgur.com/J3mdIoh.png">
+            <p>Is this available?</p>
+        </button>
+</div>
+</div>
 
 {% endblock %}

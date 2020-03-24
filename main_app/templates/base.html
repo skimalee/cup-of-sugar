@@ -15,21 +15,15 @@
     <header class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-                <ul>
-                    <li><a href="/" class="left brand-logo"><img src="https://i.imgur.com/SdDFZy5.png"></a></li>
-                </ul>
+                <div class="logo">
+                    <img class="brand-logo" src="https://i.imgur.com/SdDFZy5.png">
+                </div>
                 <ul class="right">
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'index' %}">View Cups</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
                     {% else %}
-                        <li><a href="{% url 'signup' %}">Sign Up</a></li>
-                        <form method="post" action="{% url 'login' %}">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <input type="submit" class="btn" value="login">
-                            <input type="hidden" name="next" value="{{ next }}">
-                        </form>
+                        <li><a href="{% url 'login' %}">LOGIN</a></li>
                     {% endif %}
                 </ul>
             </div>

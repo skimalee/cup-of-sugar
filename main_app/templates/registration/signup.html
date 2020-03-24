@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Sign Up</h1>
+
 {% if error_message %}<p class="red-text">{{ error_message }}</p>{% endif %}
-<form method="post" action="{% url 'signup' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn" value="Signup">
-    <input type="hidden" name="next" value="{{ next }}">
-</form>
+<div class="signup-container">
+    <div class="introduction">
+        <h1>WELCOME TO CUP OF SUGAR!</h1>
+        <p>like a good neighbor... state farm is here lols i dont know!</p>
+    </div>
+    <div class="signup-form">
+        <h3>Create a new account</h3>
+        <form method="post" action="{% url 'signup' %}"></form>
+        {% for field in form %}
+        <div class="fieldWrapper">
+            {{ field.errors }}
+            {{ field.label_tag }}<div class="signup-input">{{ field }}</div>
+            {% if field.help_text %}
+            <p class="help help-text">{{ field.help_text|safe }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <input type="submit" class="btn" id="signup-btn" value="signup">
+        </form>
+    </div>
+</div>
 {% endblock %}

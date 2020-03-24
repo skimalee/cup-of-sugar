@@ -1,41 +1,173 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #F6F6F6
+}
+
+a {
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+}
   
-  a {
-    text-decoration: none;
-    padding: 10px;
-    color: white;
+.navbar-fixed {
+  /* background: #616BA6; */
+  background: #7A8CA0;
+  /* background: #4079A4; */
+}
+
+.nav-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
   }
-    
-  .navbar-fixed {
-    background: #7A8CA0;
-  }
-  
-  .nav-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-    align-items: center;
-  }
-  
-  .right {
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    list-style: none;
-  }
-  
-  main {
-    flex: 1 0 auto;
-  }
-  
-  footer.page-footer {
-    padding-top: 0;
-    text-align: right;
-  }
+
+.logo {
+  height: 50px;
+  padding-left: 2em;
+}
+
+.brand-logo {
+  height: 100%
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  list-style: none;
+}
+
+.right li {
+  font-size: 12px;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
+}
+
+/* signup page */
+
+.signup-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-image: url(https://i.imgur.com/dRRr6BE.jpg);
+  background-size: cover;
+}
+
+.introduction {
+  width: 45%;
+  padding: 2em;
+}
+
+.signup-form {
+  border-radius: 5px;
+  border-width: .5px;
+  padding: 1em 2em;
+  background: #F0EEEE;
+  width: 35%;
+  margin: 4em;
+  font-size: 12px;
+}
+
+.fieldWrapper {
+  padding: 1em;
+}
+
+.fieldWrapper input {
+  border-radius: 3px;
+  border-style: none;
+  height: 1rem;
+  padding-left: .5em;
+  width: 95%;
+  margin-top: 5px;
+}
+
+.help-text {
+  font-size: 8px;
+}
+
+.fieldWrapper ul {
+  font-size: 8px;
+  list-style: none;
+  padding: 0;
+}
+
+.btn {
+  width: 12em;
+  height: 2.5em;
+  border-radius: 5px;
+  color: white;
+}
+
+#signup-btn {
+  background: #616BA6;
+
+}
+
+.help-text {
+  font-size: 10px;
+}
+
+/* cup details page */
+
+.cup-details-container {
+  height: 60vh;
+  width: 75vw;
+  background: #F0EEEE;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 5%;
+}
+
+.cup-details-photo {
+  height: 100%;
+  width: 50%;
+  background: #D8D8D8;
+  border-radius: 5px;
+}
+
+.no-image {
+  text-align: center;
+  margin-top: 45%;
+}
+
+.cup-details {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-icon {
+  height: 15px;
+  width: auto;
+}
+#button-add {
+  width: 12em;
+  border-radius: 5px;
+  color: white;
+  background: #A6618D; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 2.5em;
+}
+
+#button-add p {
+  margin: 0;
+}
+
