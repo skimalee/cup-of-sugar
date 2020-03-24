@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from . models import Cup
+from . models import Cup, Profile
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.detail import DetailView
@@ -40,6 +40,12 @@ def home(request):
 def index(request):
     cups = Cup.objects.all()
     return render(request, 'cups/index.html', {'cups': cups})
+
+
+def chats_index(request):
+    profile = Profile.objects.get(user=request.user.id)
+    chats = profile.chats.all()
+    return render(request, 'main_app/chats_index.html', {'profile': profile, 'chats': chats})
 
 
 def signup(request):

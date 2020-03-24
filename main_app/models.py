@@ -46,7 +46,7 @@ class Profile(models.Model):
     cups_filled = models.IntegerField()
 
     def __str__(self):
-        return self.user
+        return str(self.user)
 
 
 class Cup(models.Model):
