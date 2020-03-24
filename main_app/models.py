@@ -67,4 +67,4 @@ class Cup(models.Model):
     fulfilled = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.cup_type} cup {self.item} in {self.category[choices][1]} is {'fulfilled' if self.fulfilled else 'not fulfilled'}"
+        return f"{self.cup_type} cup {self.item} in {self.get_category_display()} is {'fulfilled' if self.fulfilled else 'not fulfilled'}"
