@@ -3,16 +3,29 @@ from . models import Cup
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
+
+class CupCreate(CreateView):
+    model = Cup
+    fields = ['cup_type', 'item', 'description', 'category']
 
 
 class CupRead(DetailView):
     model = Cup
-    fields = ['user_name', 'cup_type', 'item', 'category', 'description', 'fulfilled']
+    fields = ['user_name', 'cup_type', 'item',
+              'category', 'description', 'fulfilled']
 
-def home(request):
-    return render(request, 'home.html')
+
+class CupUpdate(UpdateView):
+    model = Cup
+    fields = ['item', 'description', 'category']
+
+
+class CupDelete(DeleteView):
+    model = Cup
+    success_url = '/cups/'
 
 
 def index(request):
