@@ -9,17 +9,18 @@
     </div>
     <div class="signup-form">
         <h3>Create a new account</h3>
-        <form method="post" action="{% url 'signup' %}"></form>
-        {% for field in form %}
-        <div class="fieldWrapper">
-            {{ field.errors }}
-            {{ field.label_tag }}<div class="signup-input">{{ field }}</div>
-            {% if field.help_text %}
-            <p class="help help-text">{{ field.help_text|safe }}</p>
-            {% endif %}
-        </div>
-        {% endfor %}
-        <input type="submit" class="btn" id="signup-btn" value="signup">
+        <form method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="fieldWrapper">
+                {{ field.errors }}
+                {{ field.label_tag }}<div class="signup-input">{{ field }}</div>
+                {% if field.help_text %}
+                <p class="help help-text">{{ field.help_text|safe }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <input type="submit" class="btn" id="signup-btn" value="signup">
         </form>
     </div>
 </div>
