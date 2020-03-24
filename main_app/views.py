@@ -12,6 +12,10 @@ class CupCreate(CreateView):
     model = Cup
     fields = ['cup_type', 'item', 'description', 'category']
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
 
 class CupRead(DetailView):
     model = Cup
@@ -34,6 +38,7 @@ def home(request):
 
 
 def index(request):
+    cups = Cup.objects.all()
     return render(request, 'cups/index.html')
 
 

@@ -50,7 +50,7 @@ class Profile(models.Model):
 
 
 class Cup(models.Model):
-    user = models.ForeignKey(Profile, null=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     user_name = models.CharField(max_length=50, null=True)
     description = models.CharField(max_length=200, default='')
     zip = models.IntegerField(default=0)
@@ -65,6 +65,10 @@ class Cup(models.Model):
         choices=CATEGORIES
     )
     fulfilled = models.BooleanField(default=False)
+
+    def get_absolute_url(self):
+        print(reverse('detail', kwargs={'pk': self.id}))
+        return reverse('detail', kwargs={'pk': self.id})
 
     def __str__(self):
         return f"{self.cup_type} cup {self.item} in {self.get_category_display()} is {'fulfilled' if self.fulfilled else 'not fulfilled'}"
