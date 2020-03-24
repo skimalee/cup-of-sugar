@@ -7,6 +7,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
 
+
 class CupCreate(CreateView):
     model = Cup
     fields = ['cup_type', 'item', 'description', 'category']
@@ -27,8 +28,10 @@ class CupDelete(DeleteView):
     model = Cup
     success_url = '/cups/'
 
+
 def home(request):
-    return render(request, 'registration/signup.html')
+    return render(request, 'home.html')
+
 
 def index(request):
     return render(request, 'cups/index.html')
