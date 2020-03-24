@@ -1,10 +1,15 @@
+* {
+  font-size: 16px
+}
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background: #F6F6F6
+  background: #F6F6F6;
+  height: 100vh;
 }
 
 a {
@@ -78,7 +83,7 @@ footer.page-footer {
   background: #F0EEEE;
   width: 35%;
   margin: 4em;
-  font-size: 12px;
+  font-size: .75rem;
 }
 
 .fieldWrapper {
@@ -95,11 +100,11 @@ footer.page-footer {
 }
 
 .help-text {
-  font-size: 8px;
+  font-size: .5rem;
 }
 
 .fieldWrapper ul {
-  font-size: 8px;
+  font-size: .5rem;
   list-style: none;
   padding: 0;
 }
@@ -117,7 +122,7 @@ footer.page-footer {
 }
 
 .help-text {
-  font-size: 10px;
+  font-size: .625rem;
 }
 
 /* cup details page */
@@ -174,21 +179,27 @@ footer.page-footer {
 /* cups feed */
 
 .card {
-  height: 30vh;
-  width: 25vh;
-  background: gray;
+  height: 40vh;
+  width: 35vh;
+  background: #F0EEEE;
+  border: #999999;
+  border-style: solid;
+  border-width: .4px;
   color: white;
-  margin: 3em;
-  padding: 3em;
+  margin: 5em;
+  padding: 1em;
   border-radius: 5px;
+
 }
 
 .card-content {
-  color: white;
+  color: black;
+  font-size: .5rem;
 }
 
 .cup-photo {
-  height: 50%;
+  height: 60%;
   width: auto;
   background: black;
+  margin: 0;
 }
