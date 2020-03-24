@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content%}
+        <h1>All Chats</h1>
+{% similar to  cup in cups %}
+    <div class="card">
+        <a href="{% url to  chat detail %}">
+            <div class="card-content">
+                <p>Item: {{ Cup.description }}</p>
+                <p>Message from: {{ message.user2_name }}</p>
+                <p>Started on: date </p>
+
+            </div>
+
+
+        </a>
+    </div>
+
+
+{% endblock %}
