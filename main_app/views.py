@@ -42,12 +42,6 @@ def index(request):
     return render(request, 'cups/index.html', {'cups': cups})
 
 
-def chats_index(request):
-    profile = Profile.objects.get(user=request.user.id)
-    chats = profile.chats.all()
-    return render(request, 'main_app/chats_index.html', {'profile': profile, 'chats': chats})
-
-
 def signup(request):
     error_message = ''
     if request.method == 'POST':
