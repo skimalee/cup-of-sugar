@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Remove Active Cup</h1>
+<br><br>
+<div class="delete-container">
+    <h4>Are you sure you want to remove <span>{{ object.item }}</span> cup ?</h4>
 
-<h4>Are you sure you want to remove <span>{{ object.item }}</span> cup ?</h4>
-
-<form action="" method="POST">
-    {% csrf_token %}
-    <input type="submit" value="Remove" class="btn">
-    <a href="{% url 'detail' cup.id %}">Cancel</a>
-</form>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Remove" class="btn" id="delete">
+        <a href="{% url 'detail' cup.id %}">Cancel</a>
+    </form>
+</div>
 {% endblock %}

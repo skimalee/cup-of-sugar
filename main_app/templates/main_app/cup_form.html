@@ -1,17 +1,26 @@
 {% extends 'base.html' %}
 {% block content%}
-
-
+<br><br>
+<div class="cup-form-container">
     {% if object %}
-        <h1>Edit {{ object.item }}</h1>
+    <h1>Edit {{ object.item }}</h1>
     {% else %}
-        <h1>Add Cup</h1>
+    <h1>Add Cup</h1>
     {% endif %}
-    <form action="" method="post">
+    <div class="cup-form">
+    <form class="cup-form" action="" method="post">
         {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <input type="submit" value="Submit" class="btn">
+        {% for field in form %}
+        <div class="fieldWrapper">
+            {{ field.errors }}
+            {{ field.label_tag }}<div class="signup-input">{{ field }}</div>
+            {% if field.help_text %}
+            <p class="help help-text">{{ field.help_text|safe }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <input type="submit" class="btn" id="cup-form-btn" value="confirm">
     </form>
+    </div>
+</div>
 {% endblock %}
