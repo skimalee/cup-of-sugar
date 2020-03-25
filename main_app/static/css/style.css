@@ -117,7 +117,8 @@ footer.page-footer {
 }
 
 #signup-btn,
-#login-btn {
+#login-btn,
+#cup-form-btn {
   background: #616BA6;
 
 }
@@ -337,6 +338,47 @@ footer.page-footer {
 }
 
 
+/* cup-delete*/
+.delete-container {
+  padding: 2em;
+  margin: 0 auto;
+  height: 30%;
+  width: 50%;
+  background: #F0EEEE;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.delete-container a {
+  color: #616BA6
+}
+
+#delete {
+  background: red;
+}
+
 /* cup-form */
+.cup-form-container {
+  padding: 2em;
+  margin: 0 auto;
+  height: 70%;
+  width: 50%;
+  background: #F0EEEE;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
 
+.cup-form {
+  position: relative
+}
 
+h1 {
+  font-size: 1.5rem;
+}
+
+.cup-form-btn {
+  position: absolute;
+  bottom: 2em;
+  right: 2em;
+}
