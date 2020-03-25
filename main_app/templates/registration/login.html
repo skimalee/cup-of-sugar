@@ -1,10 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Login</h1>
-<form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn" value="Login">
-    <input type="hidden" name="next" value="{{ next }}">
-</form>
+<h1 class="welcome-user">Welcome back, Neighbor!</h1>
+<div class='login-container'>
+    <form class="login-form" method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="fieldWrapper">
+            {{ field.errors }}
+            {{ field.label_tag }}<div class="login-input">{{ field }}</div>
+            {% if field.help_text %}
+            <p class="help help-text">{{ field.help_text|safe }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <input type="submit" class="btn" id="login-btn" value="login">
+    </form>
+</div>
 {% endblock %}
+

@@ -7,32 +7,34 @@
     </div>
     <div class="cup-details">
         {% if object.user == user %}
-        <div class='cup-edit-n-delete'>
-            <h5 class="cup-item">{{ object.item }}</h5>
-            <a href="{% url 'cups_update' cup.id %}">
-                <button id='edit-btn'>
-                    <img class='edit-icon' src='https://i.imgur.com/Wi8U0EK.png'>
-                </button>
-            </a>
-            <a href="{% url 'cups_delete' cup.id %}">
-                <button id='delete-btn' type='submit'>x</button>
-            </a>
-        </div>
+            <div class='cup-edit-n-delete'>
+                <h5 class="cup-item">{{ object.item }}</h5>
+                <div class="cup-btns">
+                    <a href="{% url 'cups_update' cup.id %}">
+                        <button id='edit-btn'>
+                            <img class='edit-icon' src='https://i.imgur.com/Wi8U0EK.png'>
+                        </button>
+                    </a>
+                    <a href="{% url 'cups_delete' cup.id %}">
+                        <button id='delete-btn' type='submit'>x</button>
+                    </a>
+                </div>
+            </div>
+        {% else %}
+            <h3 class="cup-item">{{ object.user_name }}</h3>
         {% endif %}
         <div class="cup-details-content">
-            <p>Posted by: {{ object.user_name }}</p>
-            <p>Category: {{ object.get_category_display }}</p>
+            <p><strong>Posted by:</strong> {{ object.user }}</p>
+            <p><strong>Category: </strong>{{ object.get_category_display }}</p>
             <p>{{ object.description }}</p>
             <p>{{ object.fulfilled }}</p>
-            <!-- <form action='' method=''>
-                {% csrf_token %} -->
             <button id='button-add' class="btn" type='submit'>
                 <p>+</p>
                 <img class="chat-icon" src="https://i.imgur.com/J3mdIoh.png">
                 <p>Is this available?</p>
             </button>
-            <!-- </form> -->
         </div>
+        
     </div>
 </div>
 
