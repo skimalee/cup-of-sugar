@@ -32,6 +32,26 @@ class CupDelete(DeleteView):
     model = Cup
     success_url = '/cups/'
 
+class ProfileCreate(CreateView):
+    model = Profile
+    fields = ['display_name', 'zip']
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+class ProfileUpdate(UpdateView):
+    model = Profile
+    fields = ['display_name', 'zip']
+
+class ProfileDelete(DeleteView):
+    model = Profile
+    fields = ['display_name', 'zip']
+
+class ProfileRead(DetailView):
+    model = Profile
+    fields = ['display_name', 'zip']
+
 
 def home(request):
     return render(request, 'home.html')
@@ -49,9 +69,10 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('index')
+            return redirect('profiles_create')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
+

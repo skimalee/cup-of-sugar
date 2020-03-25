@@ -4,6 +4,10 @@ from . import views
 urlpatterns = [
     path('', views.signup, name='signup'),
     path('cups/', views.index, name='index'),
+    path('profile/<int:pk>', views.ProfileRead.as_view(), name='profiles_detail'),
+    path('profile/create', views.ProfileCreate.as_view(), name='profiles_create'),
+    path('profile/<int:pk>/update', views.ProfileUpdate.as_view(), name='profiles_update'),
+    path('profile/<int:pk>/delete', views.ProfileDelete.as_view(), name='profiles_delete'),
     path('cups/<int:pk>', views.CupRead.as_view(), name='detail'),
     path('cups/create/', views.CupCreate.as_view(), name='cups_create'),
     path('cups/<int:pk>/update', views.CupUpdate.as_view(), name='cups_update'),
