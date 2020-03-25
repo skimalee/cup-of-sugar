@@ -7,16 +7,17 @@
     </div>
     <div class="cup-details">
         {% if object.user == user %}
-            <div class='cup-edit-n-delete'>
-                <h5 class="cup-item">{{ object.item }}</h5>
+        <div class='cup-edit-n-delete'>
+            <h5 class="cup-item">{{ object.item }}</h5>
+            <a href="{% url 'cups_update' cup.id %}">
                 <button id='edit-btn'>
                     <img class='edit-icon' src='https://i.imgur.com/Wi8U0EK.png'>
-                    <a href="{% url 'cups_update' cup.id %}"></a>
                 </button>
-                <button id='delete-btn' type='submit'>
-                    <a href="{% url 'cups_delete' cup.id %}">x</a>
-                </button>
-            </div>
+            </a>
+            <a href="{% url 'cups_delete' cup.id %}">
+                <button id='delete-btn' type='submit'>x</button>
+            </a>
+        </div>
         {% endif %}
         <div class="cup-details-content">
             <p>Posted by: {{ object.user_name }}</p>
