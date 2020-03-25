@@ -3,6 +3,7 @@ from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
 
+
 CATEGORIES = (
     ('A', 'Food'),
     ('B', 'Homegoods'),
@@ -26,6 +27,8 @@ class Chat(models.Model):
     user1_name = models.CharField(max_length=50)
     user2_id = models.IntegerField()
     user2_name = models.CharField(max_length=50)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"Chat between {self.user1_name}, {self.user2_name}"
@@ -36,6 +39,14 @@ class Message(models.Model):
     sender_name = models.CharField(max_length=50)
     sender_id = models.IntegerField()
     chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def last_message_update(self):
+        self.chat.last_message.update(self)
+        return
+
+    def __str__(self):
+        return f"{self} - {self.chat.last_message}"
 
 
 class Profile(models.Model):
@@ -43,11 +54,13 @@ class Profile(models.Model):
     display_name = models.CharField(max_length=50)
     zip = models.IntegerField()
     chats = models.ManyToManyField(Chat)
-    cups_filled = models.IntegerField()
+    cups_filled = models.IntegerField(default=0)
+
+    def get_absolute_url(self):
+        return reverse('index', kwargs={'pk': self.id})
 
     def __str__(self):
         return str(self.user)
-
 
 class Cup(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
@@ -65,6 +78,8 @@ class Cup(models.Model):
         choices=CATEGORIES
     )
     fulfilled = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def get_absolute_url(self):
         print(reverse('detail', kwargs={'pk': self.id}))
