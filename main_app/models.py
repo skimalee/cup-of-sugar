@@ -21,7 +21,6 @@ CUP_TYPE = (
 
 # Create your models here.
 
-
 class Chat(models.Model):
     user1_id = models.IntegerField()
     user1_name = models.CharField(max_length=50)
@@ -45,8 +44,8 @@ class Message(models.Model):
         self.chat.last_message.update(self)
         return
 
-    def __str__(self):
-        return f"{self} - {self.chat.last_message}"
+    # def __str__(self):
+    #     return f"{self} is {self.chat.last_message}"
 
 
 class Profile(models.Model):
@@ -57,7 +56,7 @@ class Profile(models.Model):
     cups_filled = models.IntegerField(default=0)
 
     def get_absolute_url(self):
-        return reverse('index', kwargs={'pk': self.id})
+        return reverse('index')
 
     def __str__(self):
         return str(self.user)
