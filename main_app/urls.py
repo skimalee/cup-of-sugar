@@ -7,6 +7,6 @@ urlpatterns = [
     path('chats/', views.chats_index, name='chats_index'),
     path('cups/<int:pk>', views.CupRead.as_view(), name='detail'),
     path('cups/create/', views.CupCreate.as_view(), name='cups_create'),
-    path('cups/<int:pk>', views.CupUpdate.as_view(), name='cups_update'),
-    path('cups/<int:pk>', views.CupDelete.as_view(), name='cups_delete'),
+    path('cups/<int:pk>/update', views.CupUpdate.as_view(), name='cups_update'),
+    path('cups/<int:pk>/delete', views.CupDelete.as_view(), name='cups_delete'),
 ]
