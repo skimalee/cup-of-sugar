@@ -4,11 +4,13 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
 
-class CupCreate(CreateView):
+class CupCreate(LoginRequiredMixin, CreateView):
     model = Cup
     fields = ['cup_type', 'item', 'description', 'category']
 
@@ -17,22 +19,23 @@ class CupCreate(CreateView):
         return super().form_valid(form)
 
 
-class CupRead(DetailView):
+class CupRead(LoginRequiredMixin, DetailView):
     model = Cup
     fields = ['user_name', 'cup_type', 'item',
               'category', 'description', 'fulfilled']
 
 
-class CupUpdate(UpdateView):
+class CupUpdate(LoginRequiredMixin, UpdateView):
     model = Cup
     fields = ['item', 'description', 'category']
 
 
-class CupDelete(DeleteView):
+class CupDelete(LoginRequiredMixin, DeleteView):
     model = Cup
     success_url = '/cups/'
 
-class ProfileCreate(CreateView):
+
+class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile
     fields = ['display_name', 'zip']
 
@@ -40,15 +43,18 @@ class ProfileCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-class ProfileUpdate(UpdateView):
+
+class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
     fields = ['display_name', 'zip']
 
-class ProfileDelete(DeleteView):
+
+class ProfileDelete(LoginRequiredMixin, DeleteView):
     model = Profile
     fields = ['display_name', 'zip']
 
-class ProfileRead(DetailView):
+
+class ProfileRead(LoginRequiredMixin, DetailView):
     model = Profile
     fields = ['display_name', 'zip']
 
@@ -56,7 +62,7 @@ class ProfileRead(DetailView):
 def home(request):
     return render(request, 'home.html')
 
-
+@login_required
 def index(request):
     cups = Cup.objects.all()
     return render(request, 'cups/index.html', {'cups': cups})
