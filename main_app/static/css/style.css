@@ -1,5 +1,5 @@
 * {
-  font-size: 16px
+  font-size: 12px
 }
 
 body {
@@ -48,8 +48,8 @@ a {
 }
 
 .right li {
-  font-size: 12px;
-  padding-left: 10px;
+  font-size: .5em;
+  padding-left: 3em;
 }
 
 main {
@@ -93,7 +93,7 @@ footer.page-footer {
 .fieldWrapper input {
   border-radius: 3px;
   border-style: none;
-  height: 1rem;
+  height: 2rem;
   padding-left: .5em;
   width: 95%;
   margin-top: 5px;
@@ -116,7 +116,8 @@ footer.page-footer {
   color: white;
 }
 
-#signup-btn {
+#signup-btn,
+#login-btn {
   background: #616BA6;
 
 }
@@ -130,12 +131,13 @@ footer.page-footer {
 .cup-details-container {
   height: 60vh;
   width: 75vw;
-  background: #F0EEEE;
+  background: white;
   display: flex;
   flex-direction: row;
   border-radius: 5px;
   margin: 0 auto;
   margin-top: 5%;
+  position: relative;
 }
 
 .cup-details-photo {
@@ -194,7 +196,23 @@ footer.page-footer {
 }
 
 .cup-edit-n-delete {
-  justify-content: flex-start;
+  justify-content: space-between;
+}
+
+.cup-item {
+  margin: 0;
+  font-size: 1.5em
+}
+
+.cup-details-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.cup-btns {
+  display: flex;
+  flex-direction: row;
 }
 
 .chat-icon {
@@ -211,6 +229,9 @@ footer.page-footer {
   align-items: center;
   justify-content: space-evenly;
   height: 2.5em;
+  position: absolute;
+  bottom: 2em;
+  right: 2em;
 }
 
 #button-add p {
@@ -218,6 +239,55 @@ footer.page-footer {
 }
 
 /* cups feed */
+
+.cup-index {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.add-cup-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cup-icon {
+  height: 15px;
+  width: auto;
+}
+.add-cup-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 5em;
+  height: 3em;
+  border-radius: 5px;
+  color: white;
+  background: #616BA6;
+  font-size: .75rem;
+  margin-right: 10em;
+}
+
+.cup-feed-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.empty-cup, 
+.extra-cup {
+  margin: 0;
+  font-size: .75em;
+}
+
+.empty-cup {
+  color: red;
+}
+
+.extra-cup {
+  color: green;
+
+}
 
 .card {
   height: 40vh;
@@ -227,20 +297,46 @@ footer.page-footer {
   border-style: solid;
   border-width: .4px;
   color: white;
-  margin: 5em;
+  margin: 1.5em;
   padding: 1em;
   border-radius: 5px;
-
 }
 
-.card-content {
+.card-content p {
   color: black;
-  font-size: .5rem;
+  font-size: .7rem;
 }
 
 .cup-photo {
-  height: 60%;
+  height: 70%;
   width: auto;
   background: black;
   margin: 0;
 }
+
+/* login page */
+
+.login-container {
+  padding: 2em;
+  margin: 0 auto;
+  height: 60%;
+  width: 50%;
+  background: #F0EEEE;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-user {
+  font-size: 2rem;
+  margin: 1em;
+  text-align: center;
+}
+.login-input {
+  margin-bottom: 1em;
+}
+
+
+/* cup-form */
+
+

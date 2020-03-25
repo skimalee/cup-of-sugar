@@ -1,18 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
-
-
-{% for cup in cups %}
-    <div class="card">
-        <a href="{% url 'detail' cup.id %}">
-            <div class="cup-photo">
-                <img src="">
-            </div>
-            <div class="card-content">
-                <p>{{ cup.item }}</p>
-                <p> {{ cup.description }}</p>        
-            </div>
+<div class="cup-index">
+    <br><br>
+    <div class="add-cup-container">
+        <a href="{% url 'cups_create' %}">
+            <button class="add-cup-btn">
+                <img class="cup-icon" src="https://i.imgur.com/JgMT6MN.png">
+            </button class="add-cup-btn">
         </a>
     </div>
-{% endfor %}
-{% endblock %}
+    <div class="cup-feed-container">
+        {% for cup in cups %}
+        <div class="card">
+            {% if cup.cup_type == '1' %}
+            <p class="empty-cup">{{ cup.get_cup_type_display }} Cup</p>
+            {% else %}
+            <p class="extra-cup">{{ cup.get_cup_type_display }} Cup</p>
+            {% endif %}
+            <a href="{% url 'detail' cup.id %}">
+                <div class="cup-photo">
+                    <img src="">
+                </div>
+                <div class="card-content">
+                    <p><strong>{{ cup.item }}</strong></p>
+                    <p> {{ cup.description }}</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+    {% endblock %}
