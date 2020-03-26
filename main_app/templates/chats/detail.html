@@ -9,12 +9,16 @@
         {% endif %}
     </span>
 </p>
+<form action="{% url 'add_message' chat.id %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn" value="Send">
+</form><br>
 {% for message in messages %}
 <p>{{message.sender_name}}</p>
 <p>{{message.created_at}}</p>
 <p>{{message.content}}</p>
 <br>
 {% endfor %}
-
 
 {% endblock %}
