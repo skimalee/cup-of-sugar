@@ -1,37 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="cup-details-container">
-    <div class="cup-details-photo">
-        <p class="no-image">No Image Available</p>
-    </div>
-    <div class="cup-details">
+<br><br>
+<div class="profile-container">
+    <div class="profile-details">
         {% if object.user == user %}
-            <div class='cup-edit-n-delete'>
-                <h5 class="cup-item">{{ object.item }}</h5>
-                <div class="cup-btns">
-                    <a href="{% url 'profiles_update' profile.id %}">
-                        <button id='edit-btn'>
+            <div class='profile-edit-n-delete'>
+                <h5 class="cup-item">{{ object.display_name }}</h5>
+                <a href="{% url 'profiles_update' profile.id %}">
+                    <button id='edit-btn'>
                             <img class='edit-icon' src='https://i.imgur.com/Wi8U0EK.png'>
-                        </button>
-                    </a>
-                </div>
+                    </button>
+                </a>
             </div>
         {% else %}
-            <h3 class="cup-item">{{ object.user_name }}</h3>
+            <h3 class="profile-name">{{ object.display_name }}</h3>
         {% endif %}
-        <div class="cup-details-content">
-            <p><strong>Posted by:</strong> {{ object.user }}</p>
-            <p><strong>Category: </strong>{{ object.get_category_display }}</p>
-            <p>{{ object.description }}</p>
-            <p>{{ object.fulfilled }}</p>
+            <div class="profile-details-content">
+                <p><strong>Zip Code:</strong> {{ object.zip }}</p>
+            </div>
             <button id='button-add' class="btn" type='submit'>
                 <p>+</p>
                 <img class="chat-icon" src="https://i.imgur.com/J3mdIoh.png">
-                <p>Is this available?</p>
+                <p>Chat with me!</p>
             </button>
-        </div>
-        
     </div>
 </div>
 
