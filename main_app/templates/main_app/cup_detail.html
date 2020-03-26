@@ -4,39 +4,39 @@
 <div class="cup-details-container">
     <div class="cup-details-photo-container">
         {% for photo in cup.photo_set.all %}
-            <img class="cup-details-photo" src="{{photo.url}}">
+        <img class="cup-details-photo" src="{{photo.url}}">
         {% empty %}
-            <div class="card-panel teal-text center-align">No Photos Uploaded</div>
-            {% if object.user == user %}
-                <form action="{% url 'add_photo' cup.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
-                    {% csrf_token %}
-                    <input type="file" name="photo-file">
-                    <br><br>
-                    <input type="submit" value="Upload Photo">
-                </form>
-            {% endif %}
+        <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+        {% if object.user == user %}
+        <form action="{% url 'add_photo' cup.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+            {% csrf_token %}
+            <input type="file" name="photo-file">
+            <br><br>
+            <input type="submit" value="Upload Photo">
+        </form>
+        {% endif %}
         {% endfor %}
     </div>
     <div class="cup-details">
         {% if object.user == user %}
-            <div class='cup-edit-n-delete'>
-                <h5 class="cup-item">{{ object.item }}</h5>
-                <div class="cup-btns">
-                    <a href="{% url 'cups_update' cup.id %}">
-                        <button id='edit-btn'>
-                            <img class='edit-icon' src='https://i.imgur.com/Wi8U0EK.png'>
-                        </button>
-                    </a>
-                    <a href="{% url 'cups_delete' cup.id %}">
-                        <button id='delete-btn' type='submit'>x</button>
-                    </a>
-                    <a href="{% url 'index' %}">
-                        <button id='button-add' class="btn" type='submit'>BACK</button>
-                    </a>
-                </div>
+        <div class='cup-edit-n-delete'>
+            <h5 class="cup-item">{{ object.item }}</h5>
+            <div class="cup-btns">
+                <a href="{% url 'cups_update' cup.id %}">
+                    <button id='edit-btn'>
+                        <img class='edit-icon' src='https://i.imgur.com/Wi8U0EK.png'>
+                    </button>
+                </a>
+                <a href="{% url 'cups_delete' cup.id %}">
+                    <button id='delete-btn' type='submit'>x</button>
+                </a>
+                <a href="{% url 'index' %}">
+                    <button id='button-add' class="btn" type='submit'>BACK</button>
+                </a>
             </div>
+        </div>
         {% else %}
-            <a href="{{ url<h3 class="cup-item">{{ object.display_name }}</h3>
+        <h3 class="cup-item">{{ object.display_name }}</h3>
         {% endif %}
         <div class="cup-details-content">
             <p><strong>Posted by:</strong> {{ object.user }}</p>
