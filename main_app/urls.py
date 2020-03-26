@@ -12,4 +12,5 @@ urlpatterns = [
     path('cups/create/', views.CupCreate.as_view(), name='cups_create'),
     path('cups/<int:pk>/update', views.CupUpdate.as_view(), name='cups_update'),
     path('cups/<int:pk>/delete', views.CupDelete.as_view(), name='cups_delete'),
+    path('cups/<int:cup_id>/add_photo/', views.add_photo, name='add_photo'),
 ]
