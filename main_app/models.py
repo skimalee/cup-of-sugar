@@ -44,6 +44,7 @@ class Message(models.Model):
         return self.content
 
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     display_name = models.CharField(max_length=50)
