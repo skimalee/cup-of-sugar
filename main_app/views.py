@@ -29,7 +29,6 @@ class CupUpdate(LoginRequiredMixin, UpdateView):
     model = Cup
     fields = ['item', 'description', 'category']
 
-
 class CupDelete(LoginRequiredMixin, DeleteView):
     model = Cup
     success_url = '/cups/'
@@ -48,16 +47,13 @@ class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
     fields = ['display_name', 'zip']
 
-
 class ProfileDelete(LoginRequiredMixin, DeleteView):
     model = Profile
     fields = ['display_name', 'zip']
 
-
 class ProfileRead(LoginRequiredMixin, DetailView):
     model = Profile
     fields = ['display_name', 'zip']
-
 
 def home(request):
     return render(request, 'home.html')
