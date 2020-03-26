@@ -28,7 +28,6 @@ class CupRead(LoginRequiredMixin, DetailView):
 class CupUpdate(LoginRequiredMixin, UpdateView):
     model = Cup
     fields = ['item', 'description', 'category']
-    print('hello from cup update')
 
 class CupDelete(LoginRequiredMixin, DeleteView):
     model = Cup
