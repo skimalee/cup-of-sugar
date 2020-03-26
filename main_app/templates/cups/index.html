@@ -12,19 +12,23 @@
     <div class="cup-feed-container">
         {% for cup in cups %}
         <div class="card">
-            {% if cup.cup_type == '1' %}
-            <p class="empty-cup">{{ cup.get_cup_type_display }} Cup</p>
-            {% else %}
-            <p class="extra-cup">{{ cup.get_cup_type_display }} Cup</p>
-            {% endif %}
             <a href="{% url 'detail' cup.id %}">
-                <div class="cup-photo">
-                    <img src="">
-                </div>
-                <div class="card-content">
-                    <p><strong>{{ cup.item }}</strong></p>
-                    <p> {{ cup.description }}</p>
-                </div>
+            {% if cup.cup_type == '1' %}
+                <p class="empty-cup">{{ cup.get_cup_type_display }} Cup</p>
+            {% else %}
+                <p class="extra-cup">{{ cup.get_cup_type_display }} Cup</p>
+            {% endif %}
+            <div class="cup-photo-container">
+                {% for photo in cup.photo_set.all %}
+                    <img class="cup-photo" src="{{photo.url}}">
+                {% empty %}
+                    <div class="no-photo-box">No Photos Uploaded</div>
+                {% endfor %}
+            </div>
+            <div class="card-content">
+                <p><strong>{{ cup.item }}</strong></p>
+                <p> {{ cup.description }}</p>
+            </div>
             </a>
         </div>
         {% endfor %}

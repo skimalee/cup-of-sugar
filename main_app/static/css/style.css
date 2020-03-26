@@ -141,6 +141,11 @@ footer.page-footer {
   position: relative;
 }
 
+.cup-details-photo-container {
+  height: 100%;
+  width: 50%;
+}
+
 .cup-details-photo {
   height: 100%;
   width: 50%;
@@ -166,6 +171,13 @@ footer.page-footer {
 .no-image {
   text-align: center;
   margin-top: 45%;
+}
+
+.cup-details-photo {
+height: 100%;
+width: auto;
+background: black;
+margin: 0;
 }
 
 .cup-details {
@@ -321,13 +333,25 @@ footer.page-footer {
 .card-content p {
   color: black;
   font-size: .7rem;
+  height: 30%;
+  width: auto;
+}
+
+.cup-photo-container {
+  height: 70%;
+  width: auto;
+  background: gray;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
 .cup-photo {
-  height: 70%;
-  width: auto;
-  background: black;
-  margin: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* login page */

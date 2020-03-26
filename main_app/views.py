@@ -66,6 +66,7 @@ def home(request):
 @login_required
 def index(request):
     cups = Cup.objects.all()
+    print(request.user)
     return render(request, 'cups/index.html', {'cups': cups})
 
 
