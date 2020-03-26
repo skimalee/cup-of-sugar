@@ -28,7 +28,7 @@ class CupRead(LoginRequiredMixin, DetailView):
 class CupUpdate(LoginRequiredMixin, UpdateView):
     model = Cup
     fields = ['item', 'description', 'category']
-
+    print('hello from cup update')
 
 class CupDelete(LoginRequiredMixin, DeleteView):
     model = Cup
@@ -48,16 +48,13 @@ class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
     fields = ['display_name', 'zip']
 
-
 class ProfileDelete(LoginRequiredMixin, DeleteView):
     model = Profile
     fields = ['display_name', 'zip']
 
-
 class ProfileRead(LoginRequiredMixin, DetailView):
     model = Profile
     fields = ['display_name', 'zip']
-
 
 def home(request):
     return render(request, 'home.html')
