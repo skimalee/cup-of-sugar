@@ -1,13 +1,20 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<h1>Chatting with {{ Chat.user2_name }} about {{ Cup.description }}</h1>
-
-
-
-
-
-
+<p>Chatting with <span id="chat-with-name">
+        {% if chat.user1_name == profile.display_name %}
+        {{ chat.user2_name }}
+        {% else %}
+        {{ chat.user1_name }}
+        {% endif %}
+    </span>
+</p>
+{% for message in messages %}
+<p>{{message.sender_name}}</p>
+<p>{{message.created_at}}</p>
+<p>{{message.content}}</p>
+<br>
+{% endfor %}
 
 
 {% endblock %}
