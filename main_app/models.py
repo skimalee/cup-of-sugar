@@ -26,6 +26,7 @@ class Chat(models.Model):
     user1_name = models.CharField(max_length=50)
     user2_id = models.IntegerField()
     user2_name = models.CharField(max_length=50)
+    # last_message = IntegerField() should be queried in the views with Message.objects.get()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -40,12 +41,12 @@ class Message(models.Model):
     chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    def last_message_update(self):
-        self.chat.last_message.update(self)
-        return
+    # def last_message_update(self):
+    #     self.chat.last_message.update(self)
+    #     return
 
-    # def __str__(self):
-    #     return f"{self} is {self.chat.last_message}"
+    def __str__(self):
+        return self.content
 
 
 class Profile(models.Model):
