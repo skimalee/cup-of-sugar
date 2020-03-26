@@ -147,6 +147,22 @@ footer.page-footer {
   background: #D8D8D8;
   border-radius: 5px;
 }
+.cup-details-photo img {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.cup-details-photo img.wide {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+}
+.cup-details-photo img.tall {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+}​
 
 .no-image {
   text-align: center;

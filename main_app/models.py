@@ -87,3 +87,10 @@ class Cup(models.Model):
 
     def __str__(self):
         return f"{self.cup_type} cup {self.item} in {self.get_category_display()} is {'fulfilled' if self.fulfilled else 'not fulfilled'}"
+
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    cup = models.ForeignKey(Cup, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Photo for cup_id: {self.cup_id} @{self.url}"

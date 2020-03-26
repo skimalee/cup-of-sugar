@@ -2,26 +2,40 @@
 {% block content %}
 
 <div class="cup-details-container">
+    {% if object.user == user %}
     <div class="cup-details-photo">
-        <p class="no-image">No Image Available</p>
+        {% for photo in cup.photo_set.all %}
+        <img class="cup-photo" src="{{photo.url}}">
+        {% empty %}
+        <div class="card-panel teal-text center-align">No Photos Uploaded</div>
+        {% endfor %}
+        {% for photo in cup.photo_set.all %}
+        {% empty %}
+        <form action="{% url 'add_photo' cup.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+            {% csrf_token %}
+            <input type="file" name="photo-file">
+            <br><br>
+            <input type="submit" value="Upload Photo">
+        </form>
+        {% endfor%}
     </div>
     <div class="cup-details">
-        {% if object.user == user %}
-            <div class='cup-edit-n-delete'>
-                <h5 class="cup-item">{{ object.item }}</h5>
-                <div class="cup-btns">
-                    <a href="{% url 'cups_update' cup.id %}">
-                        <button id='edit-btn'>
-                            <img class='edit-icon' src='https://i.imgur.com/Wi8U0EK.png'>
-                        </button>
-                    </a>
-                    <a href="{% url 'cups_delete' cup.id %}">
-                        <button id='delete-btn' type='submit'>x</button>
-                    </a>
-                </div>
+
+        <div class='cup-edit-n-delete'>
+            <h5 class="cup-item">{{ object.item }}</h5>
+            <div class="cup-btns">
+                <a href="{% url 'cups_update' cup.id %}">
+                    <button id='edit-btn'>
+                        <img class='edit-icon' src='https://i.imgur.com/Wi8U0EK.png'>
+                    </button>
+                </a>
+                <a href="{% url 'cups_delete' cup.id %}">
+                    <button id='delete-btn' type='submit'>x</button>
+                </a>
             </div>
+        </div>
         {% else %}
-            <h3 class="cup-item">{{ object.user_name }}</h3>
+        <h3 class="cup-item">{{ object.user_name }}</h3>
         {% endif %}
         <div class="cup-details-content">
             <p><strong>Posted by:</strong> {{ object.user }}</p>
@@ -33,7 +47,7 @@
                 <p>Is this available?</p>
             </button>
         </div>
-        
+
     </div>
 </div>
 
