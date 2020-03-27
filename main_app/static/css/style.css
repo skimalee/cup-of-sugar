@@ -333,7 +333,7 @@ margin: 0;
 }
 
 .card-content p {
-  color: black;
+  color: rgb(69, 78, 126);
   font-size: .7rem;
   height: 30%;
   width: auto;
@@ -467,9 +467,7 @@ h1 {
   color: white;
   border-radius: 5px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 1em;
 }
 .message-form {
   display: flex;
@@ -477,6 +475,7 @@ h1 {
   justify-content: space-around;
   align-items: center;
   align-content: center;
+  width: 90%
 }
 .message-container {
   height: auto;
@@ -513,8 +512,14 @@ h1 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: 90%;
+}
+.message-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
 .messages
 .sender-name,
@@ -532,6 +537,11 @@ h1 {
   font-size: .625rem;
 }
 
+/* chat inbox */
+.chat-inbox-label {
+  text-align: center;
+  color: rgb(69, 78, 126)
+}
 .inbox-container {
   height: auto;
   width: 50%;  
@@ -556,7 +566,15 @@ h1 {
 }
 
 .sender-name {
-  color: blue;
+  color: rgb(69, 78, 126);
   margin: 0;
 }
 
+.individual-message {
+  background: white;
+  padding: .5em;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: rgb(223, 223, 223);
+  border-width: .75px;
+}
