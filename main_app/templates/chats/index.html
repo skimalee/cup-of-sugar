@@ -4,22 +4,22 @@
 <h1 class="chat-inbox-label">CHAT INBOX</h1>
 <div class="inbox-container">
     {% for chat in chats %}
-    <a href="{% url 'chats_detail' chat.id %}">
-        <div class="chat-card">
-            <div class="card-content">
-                <p>CHAT WITH &nbsp;&nbsp;<span id="chat-with-name">
-                        {% if chat.user1_name == profile.display_name %}
-                            {{ chat.user2_name|upper }}
-                        {% else %}
-                            {{ chat.user1_name|upper }}
-                        {% endif %}
-                    </span>
-                </p>
+        <a href="{% url 'chats_detail' chat.id %}">
+            <div class="chat-card">
+                <div class="card-content">
+                    <p>CHAT WITH &nbsp;&nbsp;<span id="chat-with-name">
+                            {% if chat.user1_name == profile.display_name %}
+                                {{ chat.user2_name|upper }}
+                            {% else %}
+                                {{ chat.user1_name|upper }}
+                            {% endif %}
+                        </span>
+                    </p>
 
+                </div>
             </div>
-        </div>
-        {% endfor %}
-    </a>
+        </a>
+    {% endfor %}
 </div>
 
 {% endblock %}
