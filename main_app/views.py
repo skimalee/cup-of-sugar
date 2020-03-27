@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from . models import Cup, Profile, Photo
+from . models import Cup, Profile, Photo, Chat
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.detail import DetailView
@@ -65,9 +65,8 @@ class ProfileDelete(LoginRequiredMixin, DeleteView):
 
 def profile_detail(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
-    chat = profile.chats.filter(
-        Q(user1_id=request.user.id) | Q(user2_id=request.user.id)
-    ).first()
+    my_id = request.user.id
+    chat = Chat.objects.filter(Q(user1_id=request.user.id) | Q(user2_id=request.user.id)).first()
     return render(request, 'main_app/profile_detail.html', {'profile': profile, 'chat': chat})
 
 
