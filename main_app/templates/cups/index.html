@@ -22,7 +22,9 @@
                 {% for photo in cup.photo_set.all %}
                     <img class="cup-photo" src="{{photo.url}}">
                 {% empty %}
-                    <div class="no-photo-box">No Photos Uploaded</div>
+                    <div class="no-photo-box">
+                        <img src="https://i.imgur.com/yE0IgmQ.png">
+                    </div>
                 {% endfor %}
             </div>
             <div class="card-content">

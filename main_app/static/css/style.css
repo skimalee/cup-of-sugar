@@ -18,8 +18,6 @@ a {
 }
   
 .navbar-fixed {
-  /* background: #616BA6; */
-  /* background: #7A8CA0; */
   background: #4079A4;
 }
 
@@ -173,13 +171,23 @@ footer.page-footer {
 }​ */
 
 .no-image {
-  text-align: center;
-  margin-top: 45%;
+  height: 100%;
+  width: 100%;
+  background: #d8d8d8;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-photo {
+  height: 7%;
+  width: auto;
 }
 
 .cup-details-photo {
 height: 100%;
-width: auto;
+width: 100%;
 background: black;
 margin: 0;
 }
@@ -344,7 +352,7 @@ margin: 0;
 .cup-photo-container {
   height: 70%;
   width: auto;
-  background: gray;
+  background: #d8d8d8;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -358,6 +366,10 @@ margin: 0;
   height: 100%;
 }
 
+.no-photo-box {
+  height: 10px
+  width: auto;
+}
 /* login page */
 
 .login-container {
