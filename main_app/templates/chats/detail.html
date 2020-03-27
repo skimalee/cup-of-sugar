@@ -10,16 +10,17 @@
         </span>
     </p>
     <div class="message-form-container">
-        <div class="message-form-container">
+        <div class="message-box">
             <form class="message-form" action="{% url 'add_message' chat.id %}" method="post">
                 {% csrf_token %}
                 {% for field in form %}
-                <div class="message-fieldWrapper">
-                    {{ field.errors }}
-                    {{ field.label_tag }}&nbsp;&nbsp;{{ field }}&nbsp;&nbsp;
-                </div>
+                    <div class="message-fieldWrapper">
+                        {{ field.errors }}
+                        <div class="messages-label">{{ field.label_tag }}</div>
+                        <div class="message-input-field"></div>{{ field }}</div>
+                        <input type="submit" class="btn" id="message-send-btn" value="send">
+                    </div>
                 {% endfor %}
-                <input type="submit" class="btn" id="cup-form-btn" value="send">
             </form>
         </div>
     </div>

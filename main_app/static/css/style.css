@@ -1,5 +1,5 @@
 * {
-  font-size: 12px
+  font-size: 12px;
 }
 
 body {
@@ -9,7 +9,7 @@ body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
   background: #F6F6F6;
-  height: 100vh;
+  height: 100%;
 }
 
 a {
@@ -79,6 +79,8 @@ footer.page-footer {
 .signup-form {
   border-radius: 5px;
   border-width: .5px;
+  border-style: solid;
+  border-color: rgb(223, 223, 223);
   padding: 1em 2em;
   background: #F0EEEE;
   width: 35%;
@@ -152,7 +154,7 @@ footer.page-footer {
   background: #D8D8D8;
   border-radius: 5px;
 }
-.cup-details-photo img {
+/* .cup-details-photo img {
   height: 100%;
   width: 100%;
 }
@@ -166,7 +168,7 @@ footer.page-footer {
   max-height: 100%;
   max-width: 100%;
   width: auto;
-}​
+}​ */
 
 .no-image {
   text-align: center;
@@ -385,6 +387,9 @@ margin: 0;
   width: 50%;
   background: #F0EEEE;
   border-radius: 5px;
+  border-style: solid;
+  border-width: .75px;
+  border-color: rgb(223, 223, 223);
   text-align: center;
 }
 
@@ -404,6 +409,9 @@ margin: 0;
   width: 50%;
   background: #F0EEEE;
   border-radius: 5px;
+  border-style: solid;
+  border-width: .75px;
+  border-color: rgb(223, 223, 223);
   display: flex;
   flex-direction: column;
 }
@@ -431,6 +439,9 @@ h1 {
   display: flex;
   flex-direction: column;
   border-radius: 5px;
+  border-style: solid;
+  border-width: .75px;
+  border-color: rgb(223, 223, 223);
   margin: 0 auto;
   position: relative;
 }
@@ -472,11 +483,15 @@ h1 {
   width: 50%;
   background: #F0EEEE;
   border-radius: 5px;
+  border-style: solid;
+  border-width: .75px;
+  border-color: rgb(223, 223, 223);
   margin: 0 auto;
   padding: 2em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
 }
 
 .message-form {
@@ -487,24 +502,26 @@ h1 {
 }
 
 #message-send-btn {
-  width: 12em;
+  width: 7em;
   height: 2.5em;
   border-radius: 5px;
   color: white;
+  background: #616BA6;
 }
 
 .message-fieldWrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: 90%;
 }
-
+.messages
 .sender-name,
 .created-at,
 .message {
   margin: 0;
+  padding: .25em;
 }
 
 .sender-name {
@@ -513,5 +530,33 @@ h1 {
 
 .created-at {
   font-size: .625rem;
+}
+
+.inbox-container {
+  height: auto;
+  width: 50%;  
+  background: #F0EEEE;
+  margin: 0 auto;
+  padding: 1em;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: rgb(223, 223, 223);
+  border-width: .75px;
+
+}
+
+.chat-card {
+  background: white;
+  text-align: center;
+  padding: .5em;
+}
+
+.page-footer {
+  margin-top: 2em;
+}
+
+.sender-name {
+  color: blue;
+  margin: 0;
 }
 
