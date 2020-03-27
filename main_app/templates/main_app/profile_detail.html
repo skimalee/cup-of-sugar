@@ -6,7 +6,7 @@
     <div class="profile-details">
         {% if profile.user == user %}
         <div class='profile-edit-n-delete'>
-            <h5 class="cup-item">{{ profile.display_name|upper }}</h5>
+            <h3 class="profile-name">{{ profile.display_name|upper }}</h3>
             <a href="{% url 'profiles_update' profile.id %}">
                 <button id='edit-btn'>
                     <img class='edit-icon' src='https://i.imgur.com/Wi8U0EK.png'>
