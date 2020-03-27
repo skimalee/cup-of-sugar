@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<a href="{% url 'signup' %}"><input value="SIGN UP"></input></a>
+
 <h1 class="welcome-user">Welcome back, Neighbor!</h1>
 <div class='login-container'>
     <form class="login-form" method="post" action="{% url 'login' %}">
@@ -15,7 +15,8 @@
             {% endif %}
         </div>
         {% endfor %}
-        <input type="submit" class="btn" id="login-btn" value="login">
+        <input type="submit" class="btn" id="login-btn" value="login">&nbsp;&nbsp;&nbsp;or&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'signup' %}">Sign Up</a>
     </form>
 </div>
 {% endblock %}
