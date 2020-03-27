@@ -3,7 +3,7 @@
 {% block content%}
 <h1>All Chats</h1>
 {% for chat in chats %}
-<a href="{% url 'chats_index' %}">
+<a href="{% url 'chats_detail' chat.id %}">
     <div class="card">
         <div class="card-content">
             <p>Chat with <span id="chat-with-name">
