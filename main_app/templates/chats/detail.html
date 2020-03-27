@@ -14,15 +14,15 @@
             <div class="message-box">
                 {% csrf_token %}
                 <div class="message-fieldWrapper">
-                {% for field in form %}
+                    <div class="message-input">
+                        {% for field in form %}
                         {{ field.errors }}
-                        <div class="message-input">
                             <div class="messages-label">{{ field.label_tag }}</div>
                             <div class="message-input-field">{{ field }}</div>
                             <input type="submit" class="btn" id="message-send-btn" value="send">
                         </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
             </div>
         </form>
     </div>
