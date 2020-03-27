@@ -48,7 +48,7 @@ class Message(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     display_name = models.CharField(max_length=50)
-    zip = models.IntegerField()
+    zipcode = models.IntegerField()
     chats = models.ManyToManyField(Chat)
     cups_filled = models.IntegerField(default=0)
 
@@ -62,7 +62,7 @@ class Cup(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
     user_name = models.CharField(max_length=50, null=True)
     description = models.CharField(max_length=200, default='')
-    zip = models.IntegerField(default=0)
+    zipcode = models.IntegerField(default=0)
     fulfilled_by_profile_id = models.IntegerField(default=0)
     cup_type = models.CharField(
         max_length=1,
@@ -78,7 +78,6 @@ class Cup(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def get_absolute_url(self):
-        print(reverse('detail', kwargs={'pk': self.id}))
         return reverse('detail', kwargs={'pk': self.id})
 
     def __str__(self):

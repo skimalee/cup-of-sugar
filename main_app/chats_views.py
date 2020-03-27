@@ -11,7 +11,6 @@ def chats_create(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
     chat_id = None
     if form.is_valid():
-        print('form is valid')
         new_chat = form.save(commit=False)
         new_chat.user1_id = request.user.id
         new_chat.user1_name = request.user.profile.display_name

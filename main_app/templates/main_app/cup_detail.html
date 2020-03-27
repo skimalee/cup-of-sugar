@@ -40,7 +40,7 @@
         {% endif %}
         <div class="cup-details-content">
             <p><strong>Posted by:</strong> {{ object.user.profile.display_name }}</p>
-            <p><strong>Zipcode:</strong> {{ object.user.profile.zip }}</p>
+            <p><strong>Zipcode:</strong> {{ object.zipcode }}</p>
             <p><strong>Category: </strong>{{ object.get_category_display }}</p>
             <p>{{ object.description }}</p>
 
