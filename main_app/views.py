@@ -6,6 +6,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Q
 
 import uuid
 import boto3
@@ -34,6 +35,7 @@ class CupUpdate(LoginRequiredMixin, UpdateView):
     model = Cup
     fields = ['item', 'description', 'category']
 
+
 class CupDelete(LoginRequiredMixin, DeleteView):
     model = Cup
     success_url = '/cups/'
@@ -52,21 +54,29 @@ class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
     fields = ['display_name', 'zip']
 
+
 class ProfileDelete(LoginRequiredMixin, DeleteView):
     model = Profile
     fields = ['display_name', 'zip']
 
-class ProfileRead(LoginRequiredMixin, DetailView):
-    model = Profile
-    fields = ['display_name', 'zip']
+
+def profile_detail(request, profile_id):
+    profile = Profile.objects.get(id=profile_id)
+    chat = profile.chats.filter(
+        Q(user1_id=request.user.id) | Q(user2_id=request.user.id)
+    ).first()
+    return render(request, 'main_app/profile_detail.html', {'profile': profile, 'chat': chat})
+
 
 def home(request):
     return render(request, 'home.html')
 
+
 @login_required
 def index(request):
-    cups = Cup.objects.all()
-    print(request.user)
+    zipcode = request.user.profile.zip
+    print(zipcode)
+    cups = Cup.objects.all().filter(zip=zipcode)
     return render(request, 'cups/index.html', {'cups': cups})
 
 
@@ -84,11 +94,13 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
+
 def add_photo(request, cup_id):
     photo_file = request.FILES.get('photo-file', None)
     if photo_file:
         s3 = boto3.client('s3')
-        key = uuid.uuid4().hex[:6] + photo_file.name[photo_file.name.rfind('.'):]
+        key = uuid.uuid4().hex[:6] + \
+            photo_file.name[photo_file.name.rfind('.'):]
         try:
             s3.upload_fileobj(photo_file, BUCKET, key)
             url = f"{S3_BASE_URL}{BUCKET}/{key}"

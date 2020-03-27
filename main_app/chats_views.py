@@ -1,23 +1,25 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Profile, Message, Chat
-from .forms import MessageForm
+from .forms import MessageForm, ChatForm
 
 # Create your views here.
 
 @login_required
-def chats_create(request, user_id):
+def chats_create(request, profile_id):
     form = ChatForm(request.POST)
+    profile = Profile.objects.get(id=profile_id)
+    chat_id = None
     if form.is_valid():
+        print('form is valid')
         new_chat = form.save(commit=False)
         new_chat.user1_id = request.user.id
         new_chat.user1_name = request.user.profile.display_name
-        new_chat.user2_id = user_id
-        new_chat.user2_name = Profile.objects.get(id=user_id).display_name
+        new_chat.user2_id = profile.id
+        new_chat.user2_name = profile.display_name
         new_chat.save()
-        print(self)
-        print(request)
-    return redirect('chats_detail')
+        chat_id = new_chat.id
+    return redirect('chats_detail', chat_id=chat_id)
 
 
 
