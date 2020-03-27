@@ -8,7 +8,7 @@
         <p class="signup-message">Give a little, Take a little.</p>
     </div>
     <div class="signup-form">
-        <h3>Create a new account</h3>
+        <h3 class="create-account">Create a new account</h3>
         <form method="post" action="{% url 'signup' %}">
             {% csrf_token %}
             {% for field in form %}
