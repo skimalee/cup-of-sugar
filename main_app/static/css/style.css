@@ -383,10 +383,10 @@ margin: 0;
   height: 100%;
 }
 
-.no-photo-box {
-  height: 10px
+/* .no-photo-box {
+  height: 10px;
   width: auto;
-}
+} */
 /* login page */
 
 .login-container {
@@ -615,6 +615,7 @@ h1 {
   background: white;
   text-align: center;
   padding: .5em;
+  margin: .5em;
 }
 
 .page-footer {
