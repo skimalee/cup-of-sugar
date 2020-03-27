@@ -65,8 +65,9 @@ class ProfileDelete(LoginRequiredMixin, DeleteView):
 
 def profile_detail(request, profile_id):
     profile = Profile.objects.get(id=profile_id)
-    my_id = request.user.id
-    chat = Chat.objects.filter(Q(user1_id=request.user.id) | Q(user2_id=request.user.id)).first()
+    criteria1 = Q(user1_id=request.user.id) & Q(user2_id=profile.id)
+    criteria2 = Q(user1_id=profile.id) & Q(user2_id=request.user.id)
+    chat = Chat.objects.filter(criteria1 | criteria2).first()
     return render(request, 'main_app/profile_detail.html', {'profile': profile, 'chat': chat})
 
 
