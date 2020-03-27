@@ -65,10 +65,8 @@ footer.page-footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-image: url(https://i.imgur.com/IcOa6QT.png);
+  background-image: url(https://i.imgur.com/dRRr6BE.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
 }
 
 .introduction {
