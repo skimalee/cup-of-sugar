@@ -36,10 +36,11 @@
             </div>
         </div>
         {% else %}
-            <h3 class="cup-item">{{ object.display_name }}</h3>
+            <h3 class="cup-item">{{ object.item }}</h3>
         {% endif %}
         <div class="cup-details-content">
-            <p><strong>Posted by:</strong> {{ object.user }}</p>
+            <p><strong>Posted by:</strong> {{ object.user.profile.display_name }}</p>
+            <p><strong>Zipcode:</strong> {{ object.user.profile.zip }}</p>
             <p><strong>Category: </strong>{{ object.get_category_display }}</p>
             <p>{{ object.description }}</p>
 

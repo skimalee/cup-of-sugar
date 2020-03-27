@@ -24,7 +24,7 @@
                 <ul class="right">
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'index' %}">VIEW CUPS</a></li>
-                        <li><a href="{% url 'profiles_detail' user.id %}">{{ user|upper }}</a></li>
+                        <li><a href="{% url 'profile_detail' user.id %}">{{ user|upper }}</a></li>
                         <li><a href="{% url 'logout' %}">LOG OUT</a></li>
                     {% else %}
                         <li><a href="{% url 'login' %}">LOGIN</a></li>
