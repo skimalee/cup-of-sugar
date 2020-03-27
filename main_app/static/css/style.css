@@ -129,6 +129,11 @@ footer.page-footer {
   font-size: .625rem;
 }
 
+.signup-link {
+  text-decoration: underline;
+  color: #616BA6;
+}
+
 /* cup details page */
 
 .cup-details-container {
