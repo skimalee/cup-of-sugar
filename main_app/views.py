@@ -7,12 +7,15 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
+from django import forms
+from .forms import CupForm
 
 import uuid
 import boto3
 
 S3_BASE_URL = 'https://s3-us-west-1.amazonaws.com/'
 BUCKET = 'cupofsugarone'
+
 # Create your views here.
 
 
@@ -21,14 +24,14 @@ class CupCreate(LoginRequiredMixin, CreateView):
     fields = ['cup_type', 'item', 'description', 'category']
 
     def form_valid(self, form):
+        form.instance.zipcode = self.request.user.profile.zipcode
         form.instance.user = self.request.user
         return super().form_valid(form)
 
 
 class CupRead(LoginRequiredMixin, DetailView):
     model = Cup
-    fields = ['user_name', 'cup_type', 'item',
-              'category', 'description', 'fulfilled']
+    fields = '__all__'
 
 
 class CupUpdate(LoginRequiredMixin, UpdateView):
@@ -43,7 +46,7 @@ class CupDelete(LoginRequiredMixin, DeleteView):
 
 class ProfileCreate(LoginRequiredMixin, CreateView):
     model = Profile
-    fields = ['display_name', 'zip']
+    fields = ['display_name', 'zipcode']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -52,12 +55,12 @@ class ProfileCreate(LoginRequiredMixin, CreateView):
 
 class ProfileUpdate(LoginRequiredMixin, UpdateView):
     model = Profile
-    fields = ['display_name', 'zip']
+    fields = ['display_name', 'zipcode']
 
 
 class ProfileDelete(LoginRequiredMixin, DeleteView):
     model = Profile
-    fields = ['display_name', 'zip']
+    fields = ['display_name', 'zipcode']
 
 
 def profile_detail(request, profile_id):
@@ -74,9 +77,8 @@ def home(request):
 
 @login_required
 def index(request):
-    zipcode = request.user.profile.zip
-    print(zipcode)
-    cups = Cup.objects.all().filter(zip=zipcode)
+    zipcode = request.user.profile.zipcode
+    cups = Cup.objects.filter(zipcode=zipcode)
     return render(request, 'cups/index.html', {'cups': cups})
 
 
@@ -105,7 +107,6 @@ def add_photo(request, cup_id):
             s3.upload_fileobj(photo_file, BUCKET, key)
             url = f"{S3_BASE_URL}{BUCKET}/{key}"
             photo = Photo(url=url, cup_id=cup_id)
-            print(cup_id)
             photo.save()
         except:
             print('An error occurred uploading file to S3')
