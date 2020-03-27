@@ -7,12 +7,19 @@
             <img class="cup-details-photo" src="{{photo.url}}">
         {% empty %}
             {% if object.user == user %}
-                <form action="{% url 'add_photo' cup.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
-                {% csrf_token %}
-                    <input type="file" name="photo-file">
-                    <br><br>
-                    <input type="submit" value="Upload Photo">
-                </form>
+                <div class="photo-form-wrapper">
+                    <form action="{% url 'add_photo' cup.id %}" enctype="multipart/form-data" method="POST" class="card-panel">
+                    {% csrf_token %}
+                        <div class="photo-upload-wrapper">
+                            <div class="file-upload">   
+                                <input type="file" name="photo-file">
+                            </div>
+                            <div class="upload">
+                                <input type="submit" value="Upload Photo">
+                            </div>
+                        </div>
+                    </form>
+                </div>
             {% else %}
                 <div class="no-image">
                     <img class="no-photo" src="https://i.imgur.com/yE0IgmQ.png">

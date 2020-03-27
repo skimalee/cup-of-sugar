@@ -146,6 +146,23 @@ footer.page-footer {
 .cup-details-photo-container {
   height: 100%;
   width: 50%;
+  background: #d8d8d8;
+}
+
+.photo-form-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50%
+}
+
+.card-panel input {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
 .cup-details-photo {
