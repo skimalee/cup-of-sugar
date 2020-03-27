@@ -461,6 +461,8 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+  align-content: center;
 }
 .message-container {
   height: 50%;
@@ -468,6 +470,7 @@ h1 {
   background: #F0EEEE;
   border-radius: 5px;
   margin: 0 auto;
+  padding: 2em;
 }
 
 .message-form {
