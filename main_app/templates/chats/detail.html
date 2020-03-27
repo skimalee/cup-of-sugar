@@ -1,30 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content%}
-    <p>Chatting with <span id="chat-with-name">
-            {% if chat.user1_name == profile.display_name %}
-            {{ chat.user2_name }}
-            {% else %}
-            {{ chat.user1_name }}
-            {% endif %}
+
+    <h1 class="chat-inbox-label">CHAT WITH 
+        <span id="chat-with-name">
+        {% if chat.user1_name == profile.display_name %}
+        {{ chat.user2_name|upper }}
+        {% else %}
+        {{ chat.user1_name|upper }}
+        {% endif %} 
         </span>
-    </p>
+    </h1>
     <div class="message-form-container">
-        <form class="message-form" action="{% url 'add_message' chat.id %}" method="post">
-            <div class="message-box">
+        <div class="message-form-wrapper">
+            <form class="message-form" action="{% url 'add_message' chat.id %}" method="post">
                 {% csrf_token %}
-                <div class="message-fieldWrapper">
-                    <div class="message-input">
+                    <div class="message-box">
                         {% for field in form %}
                         {{ field.errors }}
-                            <div class="messages-label">{{ field.label_tag }}</div>
-                            <div class="message-input-field">{{ field }}</div>
-                            <input type="submit" class="btn" id="message-send-btn" value="send">
-                        </div>
+                            <div class="message-fieldWrapper">
+                                <div class="message-input">
+                                    <div class="messages-label">{{ field.label_tag }}</div>&nbsp;&nbsp;
+                                    <div class="message-input-field">{{ field }}</div>
+                                </div>
+                                <input type="submit" class="btn" id="message-send-btn" value="send">
+                            </div>
                         {% endfor %}
                     </div>
-            </div>
-        </form>
+                </div>
+            </form>
+        </div>
     </div>
     <br>
     <div class="message-container">

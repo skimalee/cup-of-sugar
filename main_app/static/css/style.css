@@ -68,7 +68,7 @@ footer.page-footer {
   flex-direction: row;
   justify-content: space-between;
   background-image: url(https://i.imgur.com/dRRr6BE.jpg);
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -380,6 +380,11 @@ margin: 0;
   margin-bottom: 1em;
 }
 
+.sign-up-link {
+  color: rgb(69, 78, 126);
+  text-decoration: underline;
+}
+
 
 /* cup-delete*/
 .delete-container {
@@ -464,7 +469,7 @@ h1 {
 
 .message-form-container {
   height: 10%;
-  width: 50%;
+  width: 52vw;
   background: rgb(69, 78, 126);
   color: white;
   border-radius: 5px;
@@ -474,14 +479,29 @@ h1 {
 .message-form {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   align-content: center;
-  width: 90%
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
+.message-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#id_content {
+  border-radius: 3px;
+  border-style: solid;
+  border-width: .75px;
+  border-color: rgb(223, 223, 223);
+  width: 25em;
+}
+
 .message-container {
   height: auto;
-  width: 50%;
+  width: 50vw;
   background: #F0EEEE;
   border-radius: 5px;
   border-style: solid;
@@ -492,7 +512,6 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
 }
 
 .message-form {
@@ -508,12 +527,12 @@ h1 {
   border-radius: 5px;
   color: white;
   background: #616BA6;
+  margin-left: 2em;
 }
 
 .message-fieldWrapper {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-evenly;
   width: 90%;
 }
@@ -542,6 +561,12 @@ h1 {
 /* chat inbox */
 .chat-inbox-label {
   text-align: center;
+  color: rgb(69, 78, 126);
+  margin: 2em;
+}
+
+#chat-with-name {
+  font-size: 1.5rem;
   color: rgb(69, 78, 126)
 }
 .inbox-container {
