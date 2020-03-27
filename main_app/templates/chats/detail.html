@@ -1,35 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<p>Chatting with <span id="chat-with-name">
-        {% if chat.user1_name == profile.display_name %}
-        {{ chat.user2_name }}
-        {% else %}
-        {{ chat.user1_name }}
-        {% endif %}
-    </span>
-</p>
+    <p>Chatting with <span id="chat-with-name">
+            {% if chat.user1_name == profile.display_name %}
+            {{ chat.user2_name }}
+            {% else %}
+            {{ chat.user1_name }}
+            {% endif %}
+        </span>
+    </p>
     <div class="message-form-container">
         <div class="message-form-container">
             <form class="message-form" action="{% url 'add_message' chat.id %}" method="post">
                 {% csrf_token %}
                 {% for field in form %}
-                <div class="fieldWrapper">
+                <div class="message-fieldWrapper">
                     {{ field.errors }}
-                    {{ field.label_tag }} {{ field }}
+                    {{ field.label_tag }}&nbsp;&nbsp;{{ field }}&nbsp;&nbsp;
                 </div>
                 {% endfor %}
-                <input type="submit" class="btn" id="cup-form-btn" value="confirm">
+                <input type="submit" class="btn" id="cup-form-btn" value="send">
             </form>
         </div>
     </div>
-        <br>
-        <div class="message-container">
-            {% for message in messages %}
-            <p>{{message.sender_name}}</p>
-            <p>{{message.created_at}}</p>
-            <p>{{message.content}}</p>
+    <br>
+    <div class="message-container">
+        {% for message in messages %}
+            <p class="sender-name">{{message.sender_name|upper}}</p>
+            <p class="created-at">{{message.created_at}}</p>
+            <p class="message">{{message.content}}</p>
             <br>
-            {% endfor %}
-        </div>
+        {% endfor %}
+    </div>
 {% endblock %}

@@ -19,8 +19,8 @@ a {
   
 .navbar-fixed {
   /* background: #616BA6; */
-  background: #7A8CA0;
-  /* background: #4079A4; */
+  /* background: #7A8CA0; */
+  background: #4079A4;
 }
 
 .nav-wrapper {
@@ -452,10 +452,13 @@ h1 {
 .message-form-container {
   height: 10%;
   width: 50%;
-  background: #616BA6;
+  background: rgb(69, 78, 126);
   color: white;
   border-radius: 5px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .message-form {
   display: flex;
@@ -465,12 +468,15 @@ h1 {
   align-content: center;
 }
 .message-container {
-  height: 50%;
+  height: auto;
   width: 50%;
   background: #F0EEEE;
   border-radius: 5px;
   margin: 0 auto;
   padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .message-form {
@@ -485,5 +491,27 @@ h1 {
   height: 2.5em;
   border-radius: 5px;
   color: white;
-
 }
+
+.message-fieldWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+}
+
+.sender-name,
+.created-at,
+.message {
+  margin: 0;
+}
+
+.sender-name {
+  font-weight: bold;
+}
+
+.created-at {
+  font-size: .625rem;
+}
+
