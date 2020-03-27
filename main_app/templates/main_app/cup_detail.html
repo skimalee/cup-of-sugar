@@ -36,8 +36,9 @@
             </div>
         </div>
         {% else %}
-            <h3 class="cup-item">{{ object.item }}</h3>
-            <a href=" url 'profile_detail' profile.id "><button>View Their Profile</button></a>
+        <h3 class="cup-item">{{ object.item }}</h3>
+        <a href="{% url 'profile_detail' object.user.profile.id %}"><button>Connect with
+                {{object.user.profile.display_name}}</button></a>
         {% endif %}
         <div class="cup-details-content">
             <p><strong>Posted by:</strong> {{ object.user.profile.display_name }}</p>

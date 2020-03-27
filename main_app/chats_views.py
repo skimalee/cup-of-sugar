@@ -44,7 +44,6 @@ def chats_index(request):
     chats_gamma = Chat.objects.filter(
         Q(user1_id=request.user.id) | Q(user2_id=request.user.id))
     chats_beta = chats_gamma.order_by('-message__created_at')
-    print(chats_beta)
     for chat in chats_beta:
         if chat in chats:
             pass
