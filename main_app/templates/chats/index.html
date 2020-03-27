@@ -2,20 +2,24 @@
 
 {% block content%}
 <h1>All Chats</h1>
-{% for chat in chats %}
-<a href="{% url 'chats_detail' chat.id %}">
-    <div class="card">
-        <div class="card-content">
-            <p>Chat with <span id="chat-with-name">
-                    {% if chat.user1_name == profile.display_name %}
-                        {{ chat.user2_name }}
-                    {% else %}
-                        {{ chat.user1_name }}
-                    {% endif %}
-                </span>
-            </p>
+<div class="inbox-container">
+    {% for chat in chats %}
+    <a href="{% url 'chats_detail' chat.id %}">
+        <div class="chat-card">
+            <div class="card-content">
+                <p>CHAT WITH &nbsp;&nbsp;<span id="chat-with-name">
+                        {% if chat.user1_name == profile.display_name %}
+                            {{ chat.user2_name|upper }}
+                        {% else %}
+                            {{ chat.user1_name|upper }}
+                        {% endif %}
+                    </span>
+                </p>
+
+            </div>
         </div>
-    </div>
-</a>
-{% endfor %}
+    </a>
+    {% endfor %}
+</div>
+
 {% endblock %}
