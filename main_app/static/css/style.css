@@ -389,7 +389,7 @@ margin: 0;
 }
 
 .delete-container a {
-  color: #616BA6
+  color: #616BA6;
 }
 
 #delete {
@@ -444,4 +444,43 @@ h1 {
 .profile-details-content {
   padding: 1em;
   position: relative;
+}
+
+
+/* messages */
+
+.message-form-container {
+  height: 10%;
+  width: 50%;
+  background: #616BA6;
+  color: white;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+.message-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.message-container {
+  height: 50%;
+  width: 50%;
+  background: #F0EEEE;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.message-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+}
+
+#message-send-btn {
+  width: 12em;
+  height: 2.5em;
+  border-radius: 5px;
+  color: white;
+
 }
